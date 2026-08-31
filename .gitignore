@@ -1,0 +1,13 @@
+.venv/
+venv/
+.idea/
+.DS_Store
+__pycache__/
+*.pyc
+.pytest_cache/
+data/raw/
+artifacts/paper/
+*.tar.gz
+src/results/config_sweep/
+src/results/plots/
+output/
