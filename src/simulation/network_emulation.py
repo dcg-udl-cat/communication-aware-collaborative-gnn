@@ -1,4 +1,4 @@
-"""Calibrated single-host TCP replay for declared network profiles.
+"""Calibrated single-host socket-pair replay for declared network profiles.
 
 This is an application-level fallback for environments without Linux ``tc``.
 It validates the timing model over a real socket but is not a physical-device
@@ -46,7 +46,7 @@ class ReplayResult:
     bandwidth_error_q1_fraction: float
     bandwidth_error_q3_fraction: float
     calibrated: bool
-    method: str = "application_shaped_tcp_socketpair"
+    method: str = "application_shaped_socketpair"
 
     def as_dict(self) -> dict:
         return asdict(self)

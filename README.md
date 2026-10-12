@@ -153,3 +153,26 @@ paper remain distributed only in Supplementary File S1.
 The active target is the Future Internet special issue **Distributed Machine
 Learning and Federated Edge Computing for IoT**, with a hard scientific gate
 before submission.
+
+## Post-review revision analyses
+
+The revision preserves the frozen publication evidence and adds exploratory
+paired statistics, saved-checkpoint PCA diagnostics, and a balanced METIS
+placement comparison for every dataset at 2, 4, and 8 partitions. These analyses
+are separate from the original five-seed decision rule.
+
+```bash
+uv run python scripts/analyze_revision_statistics.py
+uv run --with pymetis==2025.2.2 python scripts/analyze_revision_placement.py
+uv run python scripts/generate_revision_tables.py
+```
+
+The commands require the frozen evidence under
+`artifacts/paper/results/release-v1.0.0-final/`; the statistical audit also
+verifies the 40 original focused-ablation checkpoints. These inputs and the
+analysis outputs are included in the revision's Supplementary File S2.
+PyMETIS is an optional revision-analysis dependency, not part of the main
+inference pipeline. Placement variation and training-seed uncertainty are
+reported separately. The network replay uses a same-host socket pair (Unix
+sockets on the reference Mac), and does not validate a TCP/IP path or physical
+edge hardware. Historical raw metadata is preserved with its original wording.
